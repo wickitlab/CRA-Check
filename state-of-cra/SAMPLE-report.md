@@ -4,7 +4,7 @@ _Generated 2026-06-11. Engineering evidence, not legal advice or a conformity as
 
 > **SAMPLE / METHODOLOGY DEMO.** The figures below are generated from synthetic evidence bundled with this scaffold, *not* from a real survey. To produce the real report, run cra-check across the target repositories and re-run this aggregator.
 
-The EU Cyber Resilience Act (Regulation (EU) 2024/2847) starts to bite: vulnerability-reporting obligations from **11 September 2026**, the full essential requirements from **11 December 2027**. This survey runs [cra-check](https://github.com/w1ck3ds0d4/CRA-Check) - an open-source, Apache-2.0 GitHub Action - across **4 public software projects** and aggregates the evidence, to show how ready (or not) shipping software is today, one deadline at a time.
+The EU Cyber Resilience Act (Regulation (EU) 2024/2847) starts to bite: vulnerability-reporting obligations from **11 September 2026**, the full essential requirements from **11 December 2027**. This survey runs [cra-check](https://github.com/wickitlab/CRA-Check) - an open-source, Apache-2.0 GitHub Action - across **4 public software projects** and aggregates the evidence, to show how ready (or not) shipping software is today, one deadline at a time.
 
 Each project is scanned the same way: a CycloneDX SBOM (Syft), a vulnerability scan (Grype), and 14 CRA gap checks mapped to Annex I. No project is named or graded individually here - this is an aggregate picture, not a conformity verdict on anyone.
 
@@ -57,7 +57,7 @@ Across all 4 projects the scans surfaced **3 Critical** and **6 High** findings.
 2. Collect the evidence files into one directory, one subfolder per project.
 3. Run `state-of-cra/aggregate.py` to produce this report and the machine-readable aggregate.
 
-The checks are presence-and-content signals (e.g. "is there a SECURITY.md with a contact?"), not a legal assessment of adequacy. cra-check is open source - the exact logic for every check is auditable in [`cra_report.py`](https://github.com/w1ck3ds0d4/CRA-Check/blob/main/cra_report.py). Reproduce or challenge any number here by re-running it.
+The checks are presence-and-content signals (e.g. "is there a SECURITY.md with a contact?"), not a legal assessment of adequacy. cra-check is open source - the exact logic for every check is auditable in [`cra_report.py`](https://github.com/wickitlab/CRA-Check/blob/main/cra_report.py). Reproduce or challenge any number here by re-running it.
 
 ## Get your own project CRA-ready
 
@@ -65,7 +65,7 @@ cra-check is free and open source. Add it to your CI to get the same evidence fo
 
 ```yaml
 # .github/workflows/cra.yml
-- uses: w1ck3ds0d4/CRA-Check@v1
+- uses: wickitlab/CRA-Check@v1
 ```
 
 It emits the `cra-evidence.json` and a human-readable gap report on every build. To turn that evidence into the full CRA Annex VII technical file - the document an auditor actually receives - see **CRADesk**.

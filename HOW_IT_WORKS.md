@@ -4,7 +4,7 @@ The plain-words version of ARCHITECTURE.md: what happens on a build when CRA-Che
 
 ## The main path
 
-1. **Your workflow adds one step**: `uses: w1ck3ds0d4/CRA-Check@v1`. No account, no server, no
+1. **Your workflow adds one step**: `uses: wickitlab/CRA-Check@v1`. No account, no server, no
    secret to configure.
 
 2. **It builds an inventory of your build.** Syft walks the target directory and lists every
@@ -50,7 +50,7 @@ public key, but nobody can make a new seal without the private key.
 
 **What gets sealed.** With the input `sealed` set to `true` the Actor writes
 `cra-evidence-sealed.json` next to `cra-evidence.json` and `cra-report.md`. It is a
-[ProofLog](https://github.com/w1ck3ds0d4/ProofLog) evidence export (profile `cra`) with 16 records:
+[ProofLog](https://github.com/wickitlab/ProofLog) evidence export (profile `cra`) with 16 records:
 
 1. `cra.inputs.recorded`: the declared product facts, and SHA-256 hashes of the SBOM, the Grype
    result (if any) and any security documents the run read.

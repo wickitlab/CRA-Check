@@ -2,7 +2,7 @@
 
 Turns an SBOM, an optional Grype scan and a few product facts into a 14-check EU Cyber Resilience Act evidence report, and can sign it so anyone can check later that it was not altered.
 
-The dates follow Article 71 of Regulation (EU) 2024/2847: the reporting obligations in Article 14 apply since 11 September 2026, and the Regulation applies in full from 11 December 2027. This Actor shows which pieces of engineering evidence are in place, which are weak and which are missing. It is the same open-source engine as the free [CRA-Check](https://github.com/w1ck3ds0d4/CRA-Check) GitHub Action, run as a service you can call from the Apify Console, the API, a schedule, or an AI agent through Apify's MCP support.
+The dates follow Article 71 of Regulation (EU) 2024/2847: the reporting obligations in Article 14 apply since 11 September 2026, and the Regulation applies in full from 11 December 2027. This Actor shows which pieces of engineering evidence are in place, which are weak and which are missing. It is the same open-source engine as the free [CRA-Check](https://github.com/wickitlab/CRA-Check) GitHub Action, run as a service you can call from the Apify Console, the API, a schedule, or an AI agent through Apify's MCP support.
 
 One run produces one report. Nothing is installed in your build and no repository access is needed.
 
@@ -15,7 +15,7 @@ One run produces one report. Nothing is installed in your build and no repositor
 
 ## Sealed reports
 
-Set `sealed` to `true` and the Actor also writes `cra-evidence-sealed.json`. It records the inputs (as hashes), the 14 checks, and the hashes of `cra-evidence.json` and `cra-report.md` in a signed, hash-chained log in [ProofLog](https://github.com/w1ck3ds0d4/ProofLog)'s evidence format. Anyone with the publisher's public key can check that none of it changed after the run, and ProofLog's own .NET code accepts the file. The key is published separately: PUBLIC-KEY-PLACEHOLDER.
+Set `sealed` to `true` and the Actor also writes `cra-evidence-sealed.json`. It records the inputs (as hashes), the 14 checks, and the hashes of `cra-evidence.json` and `cra-report.md` in a signed, hash-chained log in [ProofLog](https://github.com/wickitlab/ProofLog)'s evidence format. Anyone with the publisher's public key can check that none of it changed after the run, and ProofLog's own .NET code accepts the file. The key is published separately: PUBLIC-KEY-PLACEHOLDER.
 
 To verify (Python 3.11 or newer and `pip install cryptography`, with the CRA-Check repository checked out):
 
@@ -23,7 +23,7 @@ To verify (Python 3.11 or newer and `pip install cryptography`, with the CRA-Che
 python -m apify_actor.verify cra-evidence-sealed.json --public-key key.pem --evidence cra-evidence.json --report cra-report.md
 ```
 
-A seal shows that the report is the one the signing key produced and that nothing was edited, added or removed since. It does not show that the SBOM was complete, that the product is compliant, or when the run happened beyond the Actor host's clock. The full steps, including verification in .NET, are in [HOW_IT_WORKS.md](https://github.com/w1ck3ds0d4/CRA-Check/blob/main/HOW_IT_WORKS.md).
+A seal shows that the report is the one the signing key produced and that nothing was edited, added or removed since. It does not show that the SBOM was complete, that the product is compliant, or when the run happened beyond the Actor host's clock. The full steps, including verification in .NET, are in [HOW_IT_WORKS.md](https://github.com/wickitlab/CRA-Check/blob/main/HOW_IT_WORKS.md).
 
 ## The 14 checks
 
@@ -110,4 +110,4 @@ Price per report: PRICE-PLACEHOLDER. Price per sealed report: SEALED-PRICE-PLACE
 
 The checks only show where evidence is missing. Turning the gaps into a CRA technical file, templates and a CI baseline is covered by the CRADesk Kit: KIT-LANDING-PAGE-PLACEHOLDER.
 
-The engine is open source under Apache 2.0: [github.com/w1ck3ds0d4/CRA-Check](https://github.com/w1ck3ds0d4/CRA-Check). Built by WickIT Lab.
+The engine is open source under Apache 2.0: [github.com/wickitlab/CRA-Check](https://github.com/wickitlab/CRA-Check). Built by WickIT Lab.

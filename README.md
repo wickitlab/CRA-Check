@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: w1ck3ds0d4/CRA-Check@v1
+      - uses: wickitlab/CRA-Check@v1
         with:
           path: '.'
           fail-on: 'off'   # set to 'critical' to block releases on critical CVEs
@@ -87,7 +87,7 @@ Hard requirements `fail` (missing SBOM, a Critical at release, a known-exploited
 
 ### Run it on Apify (coming soon)
 
-An Apify Actor wrapping this engine is in the repository (`apify_actor/`, `.actor/`) and is not published yet. Once it is, it will take an SBOM (CycloneDX or SPDX) by URL or pasted JSON, an optional Grype result and a few product facts, and return the same 14 checks as a dataset item plus `cra-evidence.json` and `cra-report.md`, billed per report. With the `sealed` option it also writes `cra-evidence-sealed.json`, a signed copy in [ProofLog](https://github.com/w1ck3ds0d4/ProofLog)'s evidence format that anyone with the publisher's public key can verify later (`python -m apify_actor.verify`, or ProofLog in .NET); a sealed run is billed as a sealed report instead of a plain one. The report dates follow Article 71 of Regulation (EU) 2024/2847: the Article 14 reporting obligations apply since 11 September 2026 and the Regulation applies in full from 11 December 2027. Until a Store link is added here, treat it as not available. How sealing and verification work is in [`HOW_IT_WORKS.md`](HOW_IT_WORKS.md); pricing notes for the maintainer are in [`docs/apify-pricing.md`](docs/apify-pricing.md); draft listings for AI-tool directories are in [`docs/listings/`](docs/listings/).
+An Apify Actor wrapping this engine is in the repository (`apify_actor/`, `.actor/`) and is not published yet. Once it is, it will take an SBOM (CycloneDX or SPDX) by URL or pasted JSON, an optional Grype result and a few product facts, and return the same 14 checks as a dataset item plus `cra-evidence.json` and `cra-report.md`, billed per report. With the `sealed` option it also writes `cra-evidence-sealed.json`, a signed copy in [ProofLog](https://github.com/wickitlab/ProofLog)'s evidence format that anyone with the publisher's public key can verify later (`python -m apify_actor.verify`, or ProofLog in .NET); a sealed run is billed as a sealed report instead of a plain one. The report dates follow Article 71 of Regulation (EU) 2024/2847: the Article 14 reporting obligations apply since 11 September 2026 and the Regulation applies in full from 11 December 2027. Until a Store link is added here, treat it as not available. How sealing and verification work is in [`HOW_IT_WORKS.md`](HOW_IT_WORKS.md); pricing notes for the maintainer are in [`docs/apify-pricing.md`](docs/apify-pricing.md); draft listings for AI-tool directories are in [`docs/listings/`](docs/listings/).
 
 ## What's not yet built
 
@@ -95,7 +95,7 @@ An Apify Actor wrapping this engine is in the repository (`apify_actor/`, `.acto
 - A `--format html` report variant.
 - Aggregate mode (one report across many repositories).
 
-The dossier generation layer (Annex VII technical documentation, Article 14 incident drafts, continuous CVE watch, tamper-evident evidence ledger) is the commercial **CRADesk** product line built on top of this Action, together with the [ProofLog](https://github.com/w1ck3ds0d4/ProofLog) tamper-evident audit-log SDK and the [SecureCheck](https://github.com/w1ck3ds0d4/SecureCheck) security-scan workflow.
+The dossier generation layer (Annex VII technical documentation, Article 14 incident drafts, continuous CVE watch, tamper-evident evidence ledger) is the commercial **CRADesk** product line built on top of this Action, together with the [ProofLog](https://github.com/wickitlab/ProofLog) tamper-evident audit-log SDK and the [SecureCheck](https://github.com/wickitlab/SecureCheck) security-scan workflow.
 
 > **Not legal advice.** Engineering tooling and guidance; it does not by itself guarantee CRA compliance.
 

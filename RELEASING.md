@@ -18,7 +18,7 @@ CRA-Check is distributed as a GitHub Action, published to the **GitHub Marketpla
 
 Consumers then use:
 ```yaml
-- uses: w1ck3ds0d4/CRA-Check@v1
+- uses: wickitlab/CRA-Check@v1
   with:
     fail-on: 'off'   # or 'critical' to block releases on critical CVEs
 ```

@@ -47,7 +47,7 @@ Description: use the long description in [README.md](README.md).
 Tags / categories: Security, Compliance, Developer Tools, Supply Chain (use the closest of Glama's own
 category names; the tags in README.md are the search terms)
 
-Repository link (for the license and source): https://github.com/w1ck3ds0d4/CRA-Check (Apache 2.0)
+Repository link (for the license and source): https://github.com/wickitlab/CRA-Check (Apache 2.0)
 
 ## Connect (to put in the description or README field)
 

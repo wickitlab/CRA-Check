@@ -38,7 +38,7 @@ account, nothing leaves the CI runner.
 
 ## Data flow
 
-1. A consumer workflow calls `uses: w1ck3ds0d4/CRA-Check@v1` with a `path` and a `fail-on` policy.
+1. A consumer workflow calls `uses: wickitlab/CRA-Check@v1` with a `path` and a `fail-on` policy.
 2. The Action installs Syft/Grype and scans `path`, producing an SBOM then a vulnerability report.
 3. `cra_report.py` combines that scan output with repository-level evidence (SBOM presence,
    provenance, license coverage, CVD policy, `security.txt`) into pass/warn/fail checks, each

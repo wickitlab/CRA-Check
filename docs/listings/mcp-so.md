@@ -26,7 +26,7 @@ reached through Apify's MCP server.
 
 Type: Remote Server (fallback: AI Product)
 
-Repository URL: https://github.com/w1ck3ds0d4/CRA-Check
+Repository URL: https://github.com/wickitlab/CRA-Check
 
 Name: CRA Gap Check
 

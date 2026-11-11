@@ -1,6 +1,6 @@
 """Seal a CRA report in ProofLog's evidence format.
 
-ProofLog (https://github.com/w1ck3ds0d4/ProofLog) is a .NET library that keeps a
+ProofLog (https://github.com/wickitlab/ProofLog) is a .NET library that keeps a
 hash-chained, signed audit log and exports it as a self-verifying JSON bundle.
 This module writes that same bundle from Python, for one report, so a third party
 can later check with only the public key that the report was not altered. It ports

@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
 
       # Option A - use the published action (free, OSS):
-      - uses: w1ck3ds0d4/CRA-Check@v1
+      - uses: wickitlab/CRA-Check@v1
         with:
           path: '.'
           fail-on: 'off'        # set to 'critical' to block releases on critical CVEs
