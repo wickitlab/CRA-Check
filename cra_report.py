@@ -30,9 +30,11 @@ def load_json(path):
     try:
         with open(path, "r", encoding="utf-8") as f:
             text = f.read().strip()
-        return json.loads(text) if text else None
-    except (json.JSONDecodeError, OSError):
+        data = json.loads(text) if text else None
+    except (ValueError, OSError):
         return None
+    # Callers treat evidence as a mapping; a top-level list or scalar counts as absent.
+    return data if isinstance(data, dict) else None
 
 
 def parse_sbom(sbom):
